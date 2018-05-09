@@ -11,7 +11,5 @@ test:
 .PHONY : auto_create
 test:             ## Run all the tests
 test:
-	@git clone git@gitlab.com:ansrivas/voting-nos-dapp.git && \
-		cd voting-nos-dapp && \
-		git submodule update --init --recursive && \
-		sed -i '/-\ .\/smart-contracts\:\/smart-contracts/a \ \ \ \ \ \ - ..\/..\/voting-smartcontract\:\/custom-smart-contracts' nos-local/neo-local/docker-compose.yml
+	@git submodule update --init --recursive && \
+	sed -i '/-\ .\/smart-contracts\:\/smart-contracts/a \ \ \ \ \ \ - ..\/..\/voting-smartcontract\:\/custom-smart-contracts' nos-local/neo-local/docker-compose.yml
