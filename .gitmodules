@@ -1,0 +1,3 @@
+[submodule "nos-local"]
+	path = nos-local
+	url = https://github.com/nos/nos-local.git
