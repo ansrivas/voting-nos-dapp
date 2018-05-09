@@ -1,0 +1,461 @@
+{
+    "avm": {
+        "name": "nos_bookmark",
+        "hash": "d4171c487231ca7b4c83dd1ab299870f"
+    },
+    "compiler": {
+        "name": "neo-boa",
+        "version": "0.4.2"
+    },
+    "files": [
+        {
+            "id": 1,
+            "url": "/smart-contracts/voting_smartcontract/nos_bookmark.py"
+        },
+        {
+            "id": 2,
+            "url": "/usr/local/lib/python3.6/dist-packages/boa/builtins.py"
+        }
+    ],
+    "map": [
+        {
+            "start": 14,
+            "end": 22,
+            "file": 1,
+            "method": "Main",
+            "line": 9,
+            "file_line_no": 19
+        },
+        {
+            "start": 23,
+            "end": 60,
+            "file": 1,
+            "method": "Main",
+            "line": 10,
+            "file_line_no": 20
+        },
+        {
+            "start": 61,
+            "end": 65,
+            "file": 1,
+            "method": "Main",
+            "line": 11,
+            "file_line_no": 21
+        },
+        {
+            "start": 66,
+            "end": 75,
+            "file": 1,
+            "method": "Main",
+            "line": 13,
+            "file_line_no": 23
+        },
+        {
+            "start": 76,
+            "end": 110,
+            "file": 1,
+            "method": "Main",
+            "line": 16,
+            "file_line_no": 26
+        },
+        {
+            "start": 111,
+            "end": 116,
+            "file": 1,
+            "method": "Main",
+            "line": 18,
+            "file_line_no": 28
+        },
+        {
+            "start": 117,
+            "end": 179,
+            "file": 1,
+            "method": "Main",
+            "line": 19,
+            "file_line_no": 29
+        },
+        {
+            "start": 180,
+            "end": 184,
+            "file": 1,
+            "method": "Main",
+            "line": 20,
+            "file_line_no": 30
+        },
+        {
+            "start": 185,
+            "end": 214,
+            "file": 1,
+            "method": "Main",
+            "line": 22,
+            "file_line_no": 32
+        },
+        {
+            "start": 215,
+            "end": 225,
+            "file": 1,
+            "method": "Main",
+            "line": 23,
+            "file_line_no": 33
+        },
+        {
+            "start": 226,
+            "end": 244,
+            "file": 1,
+            "method": "Main",
+            "line": 26,
+            "file_line_no": 36
+        },
+        {
+            "start": 245,
+            "end": 253,
+            "file": 1,
+            "method": "Main",
+            "line": 27,
+            "file_line_no": 37
+        },
+        {
+            "start": 254,
+            "end": 292,
+            "file": 1,
+            "method": "Main",
+            "line": 28,
+            "file_line_no": 38
+        },
+        {
+            "start": 293,
+            "end": 297,
+            "file": 1,
+            "method": "Main",
+            "line": 29,
+            "file_line_no": 39
+        },
+        {
+            "start": 298,
+            "end": 307,
+            "file": 1,
+            "method": "Main",
+            "line": 30,
+            "file_line_no": 40
+        },
+        {
+            "start": 308,
+            "end": 319,
+            "file": 1,
+            "method": "Main",
+            "line": 31,
+            "file_line_no": 41
+        },
+        {
+            "start": 320,
+            "end": 372,
+            "file": 1,
+            "method": "Main",
+            "line": 32,
+            "file_line_no": 42
+        },
+        {
+            "start": 373,
+            "end": 377,
+            "file": 1,
+            "method": "Main",
+            "line": 33,
+            "file_line_no": 43
+        },
+        {
+            "start": 378,
+            "end": 397,
+            "file": 1,
+            "method": "Main",
+            "line": 35,
+            "file_line_no": 45
+        },
+        {
+            "start": 398,
+            "end": 453,
+            "file": 1,
+            "method": "Main",
+            "line": 36,
+            "file_line_no": 46
+        },
+        {
+            "start": 454,
+            "end": 460,
+            "file": 1,
+            "method": "Main",
+            "line": 37,
+            "file_line_no": 47
+        },
+        {
+            "start": 461,
+            "end": 479,
+            "file": 1,
+            "method": "Main",
+            "line": 39,
+            "file_line_no": 49
+        },
+        {
+            "start": 480,
+            "end": 488,
+            "file": 1,
+            "method": "Main",
+            "line": 40,
+            "file_line_no": 50
+        },
+        {
+            "start": 489,
+            "end": 527,
+            "file": 1,
+            "method": "Main",
+            "line": 41,
+            "file_line_no": 51
+        },
+        {
+            "start": 528,
+            "end": 532,
+            "file": 1,
+            "method": "Main",
+            "line": 42,
+            "file_line_no": 52
+        },
+        {
+            "start": 533,
+            "end": 542,
+            "file": 1,
+            "method": "Main",
+            "line": 43,
+            "file_line_no": 53
+        },
+        {
+            "start": 543,
+            "end": 554,
+            "file": 1,
+            "method": "Main",
+            "line": 44,
+            "file_line_no": 54
+        },
+        {
+            "start": 555,
+            "end": 607,
+            "file": 1,
+            "method": "Main",
+            "line": 45,
+            "file_line_no": 55
+        },
+        {
+            "start": 608,
+            "end": 612,
+            "file": 1,
+            "method": "Main",
+            "line": 46,
+            "file_line_no": 56
+        },
+        {
+            "start": 613,
+            "end": 634,
+            "file": 1,
+            "method": "Main",
+            "line": 48,
+            "file_line_no": 58
+        },
+        {
+            "start": 635,
+            "end": 643,
+            "file": 1,
+            "method": "Main",
+            "line": 49,
+            "file_line_no": 59
+        },
+        {
+            "start": 644,
+            "end": 682,
+            "file": 1,
+            "method": "Main",
+            "line": 50,
+            "file_line_no": 60
+        },
+        {
+            "start": 683,
+            "end": 687,
+            "file": 1,
+            "method": "Main",
+            "line": 51,
+            "file_line_no": 61
+        },
+        {
+            "start": 688,
+            "end": 715,
+            "file": 1,
+            "method": "Main",
+            "line": 52,
+            "file_line_no": 62
+        },
+        {
+            "start": 716,
+            "end": 720,
+            "file": 1,
+            "method": "Main",
+            "line": 53,
+            "file_line_no": 63
+        },
+        {
+            "start": 721,
+            "end": 741,
+            "file": 1,
+            "method": "Main",
+            "line": 56,
+            "file_line_no": 66
+        },
+        {
+            "start": 742,
+            "end": 746,
+            "file": 1,
+            "method": "Main",
+            "line": 57,
+            "file_line_no": 67
+        },
+        {
+            "start": 747,
+            "end": 771,
+            "file": 1,
+            "method": "Main",
+            "line": 59,
+            "file_line_no": 69
+        },
+        {
+            "start": 772,
+            "end": 776,
+            "file": 1,
+            "method": "Main",
+            "line": 60,
+            "file_line_no": 70
+        },
+        {
+            "start": 777,
+            "end": 799,
+            "file": 1,
+            "method": "Main",
+            "line": 62,
+            "file_line_no": 72
+        },
+        {
+            "start": 800,
+            "end": 804,
+            "file": 1,
+            "method": "Main",
+            "line": 63,
+            "file_line_no": 73
+        },
+        {
+            "start": 805,
+            "end": 826,
+            "file": 1,
+            "method": "Main",
+            "line": 65,
+            "file_line_no": 75
+        },
+        {
+            "start": 827,
+            "end": 831,
+            "file": 1,
+            "method": "Main",
+            "line": 66,
+            "file_line_no": 76
+        },
+        {
+            "start": 832,
+            "end": 843,
+            "file": 1,
+            "method": "get_ctx_key",
+            "line": 68,
+            "file_line_no": 148
+        },
+        {
+            "start": 844,
+            "end": 862,
+            "file": 2,
+            "method": "range",
+            "line": 7,
+            "file_line_no": 80
+        },
+        {
+            "start": 863,
+            "end": 874,
+            "file": 2,
+            "method": "range",
+            "line": 9,
+            "file_line_no": 82
+        },
+        {
+            "start": 875,
+            "end": 883,
+            "file": 2,
+            "method": "range",
+            "line": 11,
+            "file_line_no": 84
+        },
+        {
+            "start": 884,
+            "end": 889,
+            "file": 2,
+            "method": "range",
+            "line": 13,
+            "file_line_no": 86
+        },
+        {
+            "start": 890,
+            "end": 897,
+            "file": 2,
+            "method": "range",
+            "line": 15,
+            "file_line_no": 88
+        },
+        {
+            "start": 898,
+            "end": 909,
+            "file": 2,
+            "method": "range",
+            "line": 17,
+            "file_line_no": 90
+        },
+        {
+            "start": 910,
+            "end": 921,
+            "file": 2,
+            "method": "range",
+            "line": 18,
+            "file_line_no": 91
+        },
+        {
+            "start": 922,
+            "end": 932,
+            "file": 2,
+            "method": "range",
+            "line": 19,
+            "file_line_no": 92
+        },
+        {
+            "start": 933,
+            "end": 942,
+            "file": 2,
+            "method": "range",
+            "line": 20,
+            "file_line_no": 93
+        },
+        {
+            "start": 943,
+            "end": 960,
+            "file": 2,
+            "method": "range",
+            "line": 21,
+            "file_line_no": 94
+        },
+        {
+            "start": 961,
+            "end": 966,
+            "file": 2,
+            "line": 23
+        }
+    ],
+    "breakpoints": []
+}

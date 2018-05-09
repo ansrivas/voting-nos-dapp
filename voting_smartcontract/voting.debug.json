@@ -1,0 +1,317 @@
+{
+    "avm": {
+        "name": "voting",
+        "hash": "059cccd57d81de65931039d8737ddc37"
+    },
+    "compiler": {
+        "name": "neo-boa",
+        "version": "0.4.2"
+    },
+    "files": [
+        {
+            "id": 1,
+            "url": "/smart-contracts/voting_smartcontract/voting.py"
+        },
+        {
+            "id": 2,
+            "url": "/usr/local/lib/python3.6/dist-packages/boa/builtins.py"
+        }
+    ],
+    "map": [
+        {
+            "start": 14,
+            "end": 23,
+            "file": 1,
+            "method": "Main",
+            "line": 5,
+            "file_line_no": 46
+        },
+        {
+            "start": 24,
+            "end": 33,
+            "file": 1,
+            "method": "Main",
+            "line": 6,
+            "file_line_no": 47
+        },
+        {
+            "start": 34,
+            "end": 68,
+            "file": 1,
+            "method": "Main",
+            "line": 7,
+            "file_line_no": 48
+        },
+        {
+            "start": 69,
+            "end": 74,
+            "file": 1,
+            "method": "Main",
+            "line": 8,
+            "file_line_no": 49
+        },
+        {
+            "start": 75,
+            "end": 106,
+            "file": 1,
+            "method": "Main",
+            "line": 9,
+            "file_line_no": 50
+        },
+        {
+            "start": 107,
+            "end": 111,
+            "file": 1,
+            "method": "Main",
+            "line": 10,
+            "file_line_no": 51
+        },
+        {
+            "start": 112,
+            "end": 139,
+            "file": 1,
+            "method": "Main",
+            "line": 11,
+            "file_line_no": 52
+        },
+        {
+            "start": 140,
+            "end": 169,
+            "file": 1,
+            "method": "Main",
+            "line": 13,
+            "file_line_no": 54
+        },
+        {
+            "start": 170,
+            "end": 181,
+            "file": 1,
+            "method": "Main",
+            "line": 15,
+            "file_line_no": 56
+        },
+        {
+            "start": 182,
+            "end": 200,
+            "file": 1,
+            "method": "Main",
+            "line": 16,
+            "file_line_no": 57
+        },
+        {
+            "start": 201,
+            "end": 223,
+            "file": 1,
+            "method": "Main",
+            "line": 17,
+            "file_line_no": 58
+        },
+        {
+            "start": 224,
+            "end": 243,
+            "file": 1,
+            "method": "Main",
+            "line": 18,
+            "file_line_no": 59
+        },
+        {
+            "start": 244,
+            "end": 250,
+            "file": 1,
+            "method": "Main",
+            "line": 19,
+            "file_line_no": 60
+        },
+        {
+            "start": 251,
+            "end": 267,
+            "file": 1,
+            "method": "Main",
+            "line": 21,
+            "file_line_no": 62
+        },
+        {
+            "start": 268,
+            "end": 296,
+            "file": 1,
+            "method": "Main",
+            "line": 22,
+            "file_line_no": 63
+        },
+        {
+            "start": 297,
+            "end": 315,
+            "file": 1,
+            "method": "Main",
+            "line": 23,
+            "file_line_no": 64
+        },
+        {
+            "start": 316,
+            "end": 346,
+            "file": 1,
+            "method": "Main",
+            "line": 24,
+            "file_line_no": 65
+        },
+        {
+            "start": 347,
+            "end": 353,
+            "file": 1,
+            "method": "Main",
+            "line": 25,
+            "file_line_no": 66
+        },
+        {
+            "start": 354,
+            "end": 375,
+            "file": 1,
+            "method": "vote",
+            "line": 26,
+            "file_line_no": 57
+        },
+        {
+            "start": 376,
+            "end": 396,
+            "file": 1,
+            "method": "vote",
+            "line": 3,
+            "file_line_no": 34
+        },
+        {
+            "start": 397,
+            "end": 426,
+            "file": 1,
+            "method": "vote",
+            "line": 4,
+            "file_line_no": 35
+        },
+        {
+            "start": 427,
+            "end": 457,
+            "file": 1,
+            "method": "vote",
+            "line": 5,
+            "file_line_no": 36
+        },
+        {
+            "start": 458,
+            "end": 483,
+            "file": 1,
+            "method": "vote",
+            "line": 6,
+            "file_line_no": 37
+        },
+        {
+            "start": 484,
+            "end": 503,
+            "file": 1,
+            "method": "vote",
+            "line": 7,
+            "file_line_no": 38
+        },
+        {
+            "start": 504,
+            "end": 525,
+            "file": 1,
+            "method": "check_vote",
+            "line": 8,
+            "file_line_no": 27
+        },
+        {
+            "start": 526,
+            "end": 546,
+            "file": 1,
+            "method": "check_vote",
+            "line": 9,
+            "file_line_no": 28
+        },
+        {
+            "start": 547,
+            "end": 587,
+            "file": 2,
+            "method": "range",
+            "line": 10,
+            "file_line_no": 83
+        },
+        {
+            "start": 588,
+            "end": 599,
+            "file": 2,
+            "method": "range",
+            "line": 9,
+            "file_line_no": 82
+        },
+        {
+            "start": 600,
+            "end": 608,
+            "file": 2,
+            "method": "range",
+            "line": 11,
+            "file_line_no": 84
+        },
+        {
+            "start": 609,
+            "end": 614,
+            "file": 2,
+            "method": "range",
+            "line": 13,
+            "file_line_no": 86
+        },
+        {
+            "start": 615,
+            "end": 622,
+            "file": 2,
+            "method": "range",
+            "line": 15,
+            "file_line_no": 88
+        },
+        {
+            "start": 623,
+            "end": 634,
+            "file": 2,
+            "method": "range",
+            "line": 17,
+            "file_line_no": 90
+        },
+        {
+            "start": 635,
+            "end": 646,
+            "file": 2,
+            "method": "range",
+            "line": 18,
+            "file_line_no": 91
+        },
+        {
+            "start": 647,
+            "end": 657,
+            "file": 2,
+            "method": "range",
+            "line": 19,
+            "file_line_no": 92
+        },
+        {
+            "start": 658,
+            "end": 667,
+            "file": 2,
+            "method": "range",
+            "line": 20,
+            "file_line_no": 93
+        },
+        {
+            "start": 668,
+            "end": 685,
+            "file": 2,
+            "method": "range",
+            "line": 21,
+            "file_line_no": 94
+        },
+        {
+            "start": 686,
+            "end": 691,
+            "file": 2,
+            "line": 23
+        }
+    ],
+    "breakpoints": []
+}

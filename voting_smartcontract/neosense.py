@@ -20,8 +20,6 @@ def is_owner(product_id):
         print('Not the product owner!')
     return is_product_owner
 
-# Main Operation
-
 
 def Main(operation, args):
     """
@@ -46,74 +44,11 @@ def Main(operation, args):
         print("Not Authorized")
         return False
     print("Authorized")
-    # Common definitions
-    product_id = args[1]
-    user_license = concat(user_hash, product_id)
-    # my_dict = {'a': 0, 'b': 0}
-    if len(args) == 3:
-        print('License for different user')
-        requested_user = args[2]
-        requested_license = concat(requested_user, product_id)
-    else:
-        print('License for me')
-        requested_user = user_hash
-        requested_license = user_license
 
     if operation is not None:
-        if operation == 'RegisterProduct':
-            print('RegisterProduct')
-            product_exists = Get(GetContext(), product_id)
-            if not product_exists:
-                Put(GetContext(), product_id, user_hash)
-                print("Product Registered")
-                return True
-            print("Product already exists Registered")
-            return False
+        if operation == 'add':
+            print('add')
+            return args[1] + args[2]
 
-        # if operation == 'GetLicenseCount':
-        #     print('GetLicenseCount')
-        #     # License the product
-        #     print("Final licenses")
-        #     return my_dict
-
-        if operation == 'LicenseProduct':
-            print('LicenseProduct')
-            if is_owner(product_id):
-                # License the product
-                Put(GetContext(), requested_license, requested_user)
-                print("Product Licensed")
-                return True
-
-        if operation == 'TransferLicense':
-            license_owner = Get(GetContext(), user_license)
-            if license_owner:
-                print("License exists")
-                is_license_owner = CheckWitness(license_owner)
-                # Am I the license owner?
-                if is_license_owner:
-                    print("User is License Owner")
-                    # Transfer License
-                    new_user_hash = args[2]
-                    new_license = concat(new_user_hash, product_id)
-                    Delete(GetContext(), user_license)
-                    Put(GetContext(), new_license, new_user_hash)
-                    print("License Transfered")
-                    return True
-
-        if operation == 'RemoveLicense':
-            # Am I the product owner?
-            if is_owner(product_id):
-                # Delete the license
-                user_hash_to_del = args[2]
-                license_to_del = concat(user_hash_to_del, product_id)
-                Delete(GetContext(), license_to_del)
-                return True
-
-        if operation == 'GetLicense':
-            print("GetLicense")
-            license_owner = Get(GetContext(), requested_license)
-            if license_owner:
-                print("Found license")
-                return license_owner
-        print("No license found")
-        return False
+    else:
+        return -1
