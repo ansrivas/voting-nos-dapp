@@ -51,12 +51,11 @@
     [I 180510 11:14:28 BuildNRun:48] Saved output to /custom-smart-contracts/add.avm
     ```
 
-8. Now you need to import this contract. This deploys this smart-contract in your privatenet.
+8. Now you need to import this contract. This deploys this smart-contract in your privatenet. Here you will notice that your smart contract accepts `07=String` and `10=Array` as input and return `02=Integer` as output. `True` is to say that you will `testinvoke` your smartcontract.
 
-  * Here you will notice that your smart contract accepts `07=String` and `10=Array` as input and return `02=Integer` as output.
-  * `True` is to say that you will `testinvoke` your smartcontract.
-
-    ```neo> import contract /custom-smart-contracts/add.avm 0710 02 True False```
+    ```
+    neo> import contract /custom-smart-contracts/add.avm 0710 02 True False
+    ```
 
 9. Once you will import this contract, give it some useful name like `addContract`. You can skip the rest by pressing <kbd>enter</kbd> key.
 
