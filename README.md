@@ -14,7 +14,6 @@
 2. `docker exec -it neo-python /bin/bash`
 
 3. At this point, you are inside neo-python container. Few of the volumes inside docker are already mapped to your local disk. If you execute following, you will the following three directories. In case you need to add a new contract, you will add it in custom-smart-contracts directory locally on your disk and it will appear in the docker-container. If you run `ls` at this point:
-
   ```sh
   root@your-pc:/neo-python# ls
   CHANGELOG.rst  MANIFEST.in  README.rst  docs      fixtures  neo-privnet.sample.wallet  neo_python.egg-info  requirements.txt       setup.cfg
@@ -28,6 +27,7 @@
 
   root@your-pc:/neo-python# ls /smart-contracts
   wake_up_neo.py
+
   ```
 
 4. While you are inside your docker-container, execute the following to enter the neo-python-prompt:
