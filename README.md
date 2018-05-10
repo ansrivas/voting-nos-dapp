@@ -14,30 +14,30 @@
 
 2. First step is to clone this repository and execute `python auto_create.py`
 
-  ```
-  $ git clone git@gitlab.com:ansrivas/voting-nos-dapp.git
+    ```
+    $ git clone git@gitlab.com:ansrivas/voting-nos-dapp.git
 
-  $ cd voting-nos-dapp
+    $ cd voting-nos-dapp
 
-  $ python auto_create.py
-  ```
+    $ python auto_create.py
+    ```
 
-  Check if all the containers are up and running:
+    Check if all the containers are up and running:
 
-  ```
-  $ docker ps
+    ```
+    $ docker ps
 
-    CONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS              PORTS                                                                        NAMES
-  404409289bd2        cityofzion/neo-python       "/bin/sh -c /bin/bash"   4 hours ago         Up 4 hours                                                                                       neo-python
-  984a81fe1386        neolocal_neo-scan           "/bin/sh -c 'sleep 3…"   4 hours ago         Up 4 hours          0.0.0.0:4000->4000/tcp                                                       neo-scan
-  01d654c3062e        cityofzion/neo-privatenet   "/bin/bash /opt/run.…"   4 hours ago         Up 4 hours          0.0.0.0:20333-20336->20333-20336/tcp, 0.0.0.0:30333-30336->30333-30336/tcp   neo-nodes
-  992b85b86e67        postgres:10.1               "docker-entrypoint.s…"   4 hours ago         Up 4 hours          5432/tcp                                                                     db
+      CONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS              PORTS                                                                        NAMES
+    404409289bd2        cityofzion/neo-python       "/bin/sh -c /bin/bash"   4 hours ago         Up 4 hours                                                                                       neo-python
+    984a81fe1386        neolocal_neo-scan           "/bin/sh -c 'sleep 3…"   4 hours ago         Up 4 hours          0.0.0.0:4000->4000/tcp                                                       neo-scan
+    01d654c3062e        cityofzion/neo-privatenet   "/bin/bash /opt/run.…"   4 hours ago         Up 4 hours          0.0.0.0:20333-20336->20333-20336/tcp, 0.0.0.0:30333-30336->30333-30336/tcp   neo-nodes
+    992b85b86e67        postgres:10.1               "docker-entrypoint.s…"   4 hours ago         Up 4 hours          5432/tcp                                                                     db
 
-  ```
+    ```
 
 4. Now login inside your running neo-python container:
 
-  `docker exec -it neo-python /bin/bash`
+    `docker exec -it neo-python /bin/bash`
 
 5. At this point, you are inside neo-python container. Few of the volumes inside docker are already mapped to your local disk. If you execute following, you will the following three directories. In case you need to add a new contract, you will add it in custom-smart-contracts directory locally on your disk and it will appear in the docker-container. If you run `ls` at this point:
 
