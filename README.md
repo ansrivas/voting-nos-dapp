@@ -3,10 +3,9 @@
 
 Short Description.
 
-## Current Stable Version
-```
-0.1.0
-```
+docker exec -it neo-python /bin/bash
+ls /custom-smart-contracts/
+
 ## Installation
 ### pip
 ```
