@@ -1,8 +1,9 @@
 import React from "react";
 import injectSheet from "react-jss";
 import PropTypes from "prop-types";
-import { u, wallet } from '@cityofzion/neon-js'
-import { unhexlify } from 'binascii'
+import { u, wallet } from '@cityofzion/neon-js';
+import { unhexlify } from 'binascii';
+import { str2hexstring, int2hex, hexstring2str } from '@cityofzion/neon-js/src/utils'
 import { nosPropTypes } from "@nosplatform/api-functions/es6";
 
 import { injectNOS } from "../../nos";
@@ -27,8 +28,8 @@ class NOSActions extends React.Component {
 
   handleGetBalance = async scriptHash => alert(await this.props.nos.getBalance(scriptHash));
 
-  handleTestInvoke = async (scriptHash, operation, args) => {
-    alert(await this.props.nos.testInvoke(scriptHash, operation, args));
+  handleTestInvoke = async (scriptHash, operation, arg1,args2,args3) => {
+    alert(await this.props.nos.testInvoke(scriptHash, operation, arg1,args2,args3));
   }
 
   handleInvoke = async (scriptHash, operation, args) =>
@@ -49,9 +50,18 @@ class NOSActions extends React.Component {
     // const scriptHashNeoAuth = addressToScriptHash("AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y");
 
     // A simple contract to add two numbers
-    const scriptHashNeoAuth = "0xc05aaad23bd0174962cbbc918c00c22384e86bba";
+    // const scriptHashNeoAuth = "0xc05aaad23bd0174962cbbc918c00c22384e86bba";
+    const scriptHashNeoAuth = "c05aaad23bd0174962cbbc918c00c22384e86bba";
     const operation = "add";
-    const args = ["AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y", u.int2hex(1), u.int2hex(2)];
+
+    const args1 ="AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y" ;
+    // const addressToScriptHash1 = (address) => u.reverseHex(wallet.getScriptHashFromAddress(address));
+    // const addressToScriptHash2 = (address) => u.reverseHex(address);
+
+    // const address1 = addressToScriptHash1(args1);
+    // const address2 = addressToScriptHash2(args1);
+    const args2 =  u.int2hex(1);
+    const args3 =  u.int2hex(2);
 
     // console.log(addressToScriptHash("AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y"));
     // Get Storage
@@ -87,7 +97,7 @@ class NOSActions extends React.Component {
           className={classes.button}
           onClick={() =>
 
-            this.handleTestInvoke(scriptHashNeoAuth, operation, args)
+            this.handleTestInvoke(scriptHashNeoAuth, operation, args1, args2, args3)
           }
         >
           TestInvoke (NeoAuth)
