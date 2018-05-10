@@ -53,8 +53,8 @@
 
 8. Now you need to import this contract. This deploys this smart-contract in your privatenet.
 
-    * Here you will notice that your smart contract accepts `07=String` and `10=Array` as input and return `02=Integer` as output.
-    * `True` is to say that you will `testinvoke` your smartcontract.
+  * Here you will notice that your smart contract accepts `07=String` and `10=Array` as input and return `02=Integer` as output.
+  * `True` is to say that you will `testinvoke` your smartcontract.
 
     ```neo> import contract /custom-smart-contracts/add.avm 0710 02 True False```
 
