@@ -17,13 +17,12 @@
 If you execute following, you will the following three directories.
 In case you need to add a new contract, you will add it in custom-smart-contracts directory locally on your disk and it will appear
 in the docker-container. If you run `ls` at this point:
+
   ```
   root@your-pc:/neo-python# ls
   CHANGELOG.rst  MANIFEST.in  README.rst  docs      fixtures  neo-privnet.sample.wallet  neo_python.egg-info  requirements.txt       setup.cfg
   LICENSE.md     Makefile     docker      examples  neo       neo-privnet.wallet         readthedocs.yml      requirements_docs.txt  setup.py
-  ```
 
-  ```
   root@your-pc:/neo-python# ls /custom-smart-contracts/
   __init__.py  add.py  compile.py
 
@@ -143,6 +142,6 @@ Wait for sometime until the contract is deployed. You will see lots of log messa
 
 16. Happy hacking !!
 
- 
+
 ## License
 MIT
