@@ -5,15 +5,41 @@
 1. python installed in your system
 2. `docker-compose` installed. `pip install -U docker-compose`
 3. Edit your `/etc/hosts` file and append this line `127.0.0.1   neo-nodes`
+4. `pip install -U neo-boa neo-python`
 
 ## Steps to create a simple dApp using nOS.
 
 1. In case you need to remove previously running containers:
   `docker rm -f neo-scan neo-nodes db neo-python`
 
-2. `docker exec -it neo-python /bin/bash`
+2. First step is to clone this repository and execute `python auto_create.py`
 
-3. At this point, you are inside neo-python container. Few of the volumes inside docker are already mapped to your local disk. If you execute following, you will the following three directories. In case you need to add a new contract, you will add it in custom-smart-contracts directory locally on your disk and it will appear in the docker-container. If you run `ls` at this point:
+  ```
+  $ git clone git@gitlab.com:ansrivas/voting-nos-dapp.git
+
+  $ cd voting-nos-dapp
+
+  $ python auto_create.py
+  ```
+
+  Check if all the containers are up and running:
+
+  ```
+  $ docker ps
+
+    CONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS              PORTS                                                                        NAMES
+  404409289bd2        cityofzion/neo-python       "/bin/sh -c /bin/bash"   4 hours ago         Up 4 hours                                                                                       neo-python
+  984a81fe1386        neolocal_neo-scan           "/bin/sh -c 'sleep 3…"   4 hours ago         Up 4 hours          0.0.0.0:4000->4000/tcp                                                       neo-scan
+  01d654c3062e        cityofzion/neo-privatenet   "/bin/bash /opt/run.…"   4 hours ago         Up 4 hours          0.0.0.0:20333-20336->20333-20336/tcp, 0.0.0.0:30333-30336->30333-30336/tcp   neo-nodes
+  992b85b86e67        postgres:10.1               "docker-entrypoint.s…"   4 hours ago         Up 4 hours          5432/tcp                                                                     db
+
+  ```
+
+4. Now login inside your running neo-python container:
+
+  `docker exec -it neo-python /bin/bash`
+
+5. At this point, you are inside neo-python container. Few of the volumes inside docker are already mapped to your local disk. If you execute following, you will the following three directories. In case you need to add a new contract, you will add it in custom-smart-contracts directory locally on your disk and it will appear in the docker-container. If you run `ls` at this point:
 
     ```sh
     root@your-pc:/neo-python# ls
@@ -31,19 +57,19 @@
 
     ```
 
-4. While you are inside your docker-container, execute the following to enter the neo-python-prompt:
+6. While you are inside your docker-container, execute the following to enter the neo-python-prompt:
 
     ```root@your-pc:/neo-python# np-prompt -p -v```
 
-5. Enable the smart-contract events:
+7. Enable the smart-contract events:
 
     ```neo> config sc-events on```
 
-6. Open the default wallet with all the Neo and Gas in it. **Default password is `coz`**
+8. Open the default wallet with all the Neo and Gas in it. **Default password is `coz`**
 
     ```neo> open wallet /neo-python/neo-privnet.wallet```
 
-7. Build your first simple smart contract to add two numbers:
+9. Build your first simple smart contract to add two numbers:
 
     ```
     neo> build /custom-smart-contracts/add.py
@@ -51,20 +77,20 @@
     [I 180510 11:14:28 BuildNRun:48] Saved output to /custom-smart-contracts/add.avm
     ```
 
-8. Now you need to import this contract. This deploys this smart-contract in your privatenet. Here you will notice that your smart contract accepts `07=String` and `10=Array` as input and return `02=Integer` as output. `True` is to say that you will `testinvoke` your smartcontract.
+10. Now you need to import this contract. This deploys this smart-contract in your privatenet. Here you will notice that your smart contract accepts `07=String` and `10=Array` as input and return `02=Integer` as output. `True` is to say that you will `testinvoke` your smartcontract.
 
     ```
     neo> import contract /custom-smart-contracts/add.avm 0710 02 True False
     ```
 
-9. Once you will import this contract, give it some useful name like `addContract`. You can skip the rest by pressing <kbd>enter</kbd> key.
+11. Once you will import this contract, give it some useful name like `addContract`. You can skip the rest by pressing <kbd>enter</kbd> key.
 
     ```
     Please fill out the following contract details:
     [Contract Name] > addContract
     ```
 
-10. Immediately after this step you will get a contract hash which will uniquely identify your smart-contract. Take a note of it and write it down somewhere to be used later. **Notice the last line below**
+12. Immediately after this step you will get a contract hash which will uniquely identify your smart-contract. Take a note of it and write it down somewhere to be used later. **Notice the last line below**
 
     ```
     Please fill out the following contract details:
@@ -87,7 +113,7 @@
 **Note down the hash of your contract.
 Wait for sometime until the contract is deployed. You will see lots of log messages.**
 
-11. Its time to test the deployed smartcontract. **Don't forget to change the smartcontract in the line below.**
+13. Its time to test the deployed smartcontract. **Don't forget to change the smartcontract in the line below.**
 
     ```
     neo> testinvoke <your_smartcontract_hash> add ['AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y',1,2]
@@ -105,7 +131,7 @@ Wait for sometime until the contract is deployed. You will see lots of log messa
     Invoke TX fee: 0.0001
     ```
 
-12. **Running your dApp**.
+14. **Running your dApp**.
 
     In the root level of the project you will find `contract-frontend`.
 
@@ -122,7 +148,7 @@ Wait for sometime until the contract is deployed. You will see lots of log messa
     Server running at http://localhost:1234
     ```
 
-13. **Running your nos-client**.
+15. **Running your nos-client**.
 
     In another terminal run the following commands. This will launch your nos-client-browser locally.
 
@@ -134,11 +160,11 @@ Wait for sometime until the contract is deployed. You will see lots of log messa
     yarn && yarn start
     ```
 
-14. At this point you have your **smart contract deployed**, **nos-client-browser running** and your **dApp running** on http://localhost:1234
+16. At this point you have your **smart contract deployed**, **nos-client-browser running** and your **dApp running** on http://localhost:1234
 
-15. Finally in the nos-client, in the url bar, write `localhost:1234`. You will see your dApp there.
+17. Finally in the nos-client, in the url bar, write `localhost:1234`. You will see your dApp there.
 
-16. Happy hacking !!
+18. Happy hacking !!
 
 
 ## License
