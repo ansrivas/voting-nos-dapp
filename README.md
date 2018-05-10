@@ -29,6 +29,7 @@
   root@your-pc:/neo-python# ls /smart-contracts
   wake_up_neo.py
   ```
+
 4. While you are inside your docker-container, execute the following to enter the neo-python-prompt:
 
   ```root@your-pc:/neo-python# np-prompt -p -v```
