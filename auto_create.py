@@ -34,13 +34,13 @@ def main():
     add_after_line = "      - ./smart-contracts:/smart-contracts\n"
 
     print("Checking if directory already exists...")
-    for line in check_line:
+    for idx, line in enumerate(check_line):
         if line not in docker_compose_content:
-            idx = docker_compose_content.index(add_after_line)
+            index = docker_compose_content.index(add_after_line)
             print("Directory does not exist. Will append now")
-            new_content = docker_compose_content[0:idx+1] + [line] + docker_compose_content[idx+1:]
+            docker_compose_content = docker_compose_content[0:index+idx+1] + [line] + docker_compose_content[index+idx+1:]
             with open('nos-local/neo-local/docker-compose.yml', 'w') as f:
-                for new_line in new_content:
+                for new_line in docker_compose_content:
                     f.write(new_line)
             print("Successfully appended current smart contract directory to docker-compose")
         else:
