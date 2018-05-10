@@ -2,8 +2,10 @@
 
 Short Description.
 
+1. In case you need to remove previously running containers:
+  docker rm -f neo-scan neo-nodes db neo-python
 
-docker exec -it neo-python /bin/bash
+2.  docker exec -it neo-python /bin/bash
 ls /custom-smart-contracts/
 ls /nos-smart-contract/
 ls /smart-contracts
@@ -37,6 +39,9 @@ Results ['3']
 Invoke TX GAS cost: 0.0
 Invoke TX fee: 0.0001
 ```
+
+Running your nos-client:
+
 
 Now run nos-client
 Login using WIF: KxDgvEKzgSBPPfuVfw67oPQBSjidEiqTHURKSDL1R7yGaGYAeYnr
