@@ -1,1 +1,0 @@
-source activate voting-smartcontract
