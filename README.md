@@ -1,37 +1,17 @@
 # voting-smartcontract
-[![Build Status](https://travis-ci.org/username/%s.svg?branch=master)](https://travis-ci.org/username/%s)
 
 Short Description.
 
+
 docker exec -it neo-python /bin/bash
 ls /custom-smart-contracts/
+ls /smart-contracts
 
-## Installation
-### pip
-```
-pip install voting-smartcontract
-```
-### Development Installation
-* Clone the project.
-* Install in Anaconda3 environment
-* This command creates a python environment and then activates it.
-```
-$ make recreate_pyenv && chmod +x activate-env.sh && . activate-env.sh
-```
-* Now install the application in editable mode and you are ready to start development
-```
-$ pip install -e .
-```
 
-## Test
-To run the tests:
-```
-make test
-```
-## Usage
-## Examples
-```
-$ python examples/simple.py
-```
+np-prompt -p -v
+config sc-events on
+
+open wallet /neo-python/neo-privnet.wallet
+password is `coz`
 ## License
 MIT

@@ -28,20 +28,23 @@ def main():
     with open('nos-local/neo-local/docker-compose.yml', 'r') as f:
         docker_compose_content = f.readlines()
 
-    check_line = "      - ../../custom-smart-contracts:/custom-smart-contracts\n"
+    check_line = ["      - ../../custom-smart-contracts:/custom-smart-contracts\n",
+                  "      - ../contracts:/nos-smart-contract\n"]
+
     add_after_line = "      - ./smart-contracts:/smart-contracts\n"
 
     print("Checking if directory already exists...")
-    if check_line not in docker_compose_content:
-        idx = docker_compose_content.index(add_after_line)
-        print("Directory does not exist. Will append now")
-        new_content = docker_compose_content[0:idx+1] + [check_line] + docker_compose_content[idx+1:]
-        with open('nos-local/neo-local/docker-compose.yml', 'w') as f:
-            for line in new_content:
-                f.write(line)
-        print("Successfully appended current smart contract directory to docker-compose")
-    else:
-        print("Our smart contract directory is already mapped volume in docker-compose..")
+    for line in check_line:
+        if line not in docker_compose_content:
+            idx = docker_compose_content.index(add_after_line)
+            print("Directory does not exist. Will append now")
+            new_content = docker_compose_content[0:idx+1] + [line] + docker_compose_content[idx+1:]
+            with open('nos-local/neo-local/docker-compose.yml', 'w') as f:
+                for new_line in new_content:
+                    f.write(new_line)
+            print("Successfully appended current smart contract directory to docker-compose")
+        else:
+            print("Our smart contract directory is already mapped volume in docker-compose..")
 
     docker_compose_up_cmd = "docker-compose -f nos-local/neo-local/docker-compose.yml up -d"
     if 0 != execute_subprocess(docker_compose_up_cmd):

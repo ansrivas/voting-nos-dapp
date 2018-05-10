@@ -24,7 +24,7 @@ open wallet /neo-python/neo-privnet.wallet
 
 /neo-python/sc/voting_smartcontract
 /smart-contracts/voting_smartcontract/neosense.py
-
+/custom-smart-contracts/
 
 /neo-python
 
