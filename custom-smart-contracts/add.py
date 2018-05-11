@@ -4,7 +4,7 @@ Created by Dean van Dugteren (City of Zion, VDT Network)
 hello@dean.press
 """
 
-from boa.interop.Neo.Runtime import CheckWitness
+from boa.interop.Neo.Runtime import CheckWitness, Log
 from boa.interop.Neo.Storage import GetContext, Put, Delete, Get
 from boa.builtins import concat
 
@@ -50,5 +50,5 @@ def Main(operation, args):
             print('add')
             return args[1] + args[2]
 
-    else:
-        return -1
+    Log('unknown operation')
+    return False

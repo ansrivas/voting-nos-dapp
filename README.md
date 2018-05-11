@@ -166,6 +166,6 @@ Wait for sometime until the contract is deployed. You will see lots of log messa
 
 18. Happy hacking !!
 
-
+19. `testinvoke e60a3fa8149a853eb4dff4f6ed93c931646a9e22 RegisterDomain ['AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y', 'addition.nos', 'AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y', 'http://localhost:1234']`
 ## License
 MIT
