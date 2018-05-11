@@ -29,7 +29,18 @@ class NOSActions extends React.Component {
   handleGetBalance = async scriptHash => alert(await this.props.nos.getBalance(scriptHash));
 
   handleTestInvoke = async (scriptHash, operation, arg1,args2,args3) => {
-    alert(await this.props.nos.testInvoke(scriptHash, operation, arg1,args2,args3));
+  const output = await this.props.nos.testInvoke(scriptHash, operation, arg1,args2,args3);
+  const finalOutput = JSON.stringify(output);
+
+  console.log(unhexlify('525058'));
+  console.log(finalOutput);
+  const valueObj = output.stack[0];
+  const valueObj1 = output.stack[1];
+  console.log(valueObj1.value);
+  console.log(u.ab2str(valueObj.valueObj1));
+  console.log(unhexlify(valueObj1.value));
+
+  // console.log(u.hex2int(valueObj.value));
   }
 
   handleInvoke = async (scriptHash, operation, args) =>
@@ -51,18 +62,30 @@ class NOSActions extends React.Component {
 
     // A simple contract to add two numbers
     // const scriptHashNeoAuth = "0xc05aaad23bd0174962cbbc918c00c22384e86bba";
-    const scriptHashNeoAuth = "c05aaad23bd0174962cbbc918c00c22384e86bba";
+    const scriptHashNeoAuth = "186d815725aabb60c20d1aefd52a86bfd640766f";
+    // const scriptHashNeoAuth = "c9bef0500d45dc9c2dc24332f9f943b096dfd457";
+    // const scriptHashNeoAuth = "0xc05aaad23bd0174962cbbc918c00c22384e86bba";
+
     const operation = "add";
 
-    const args1 ="AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y" ;
+    const walletAddress ="AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y" ;
     // const addressToScriptHash1 = (address) => u.reverseHex(wallet.getScriptHashFromAddress(address));
     // const addressToScriptHash2 = (address) => u.reverseHex(address);
 
     // const address1 = addressToScriptHash1(args1);
     // const address2 = addressToScriptHash2(args1);
+    console.log(wallet.getScriptHashFromAddress(walletAddress));
+    console.log(wallet.getScriptHashFromAddress("APBUyZNkemciUQurabSQBnnma7kGGhUPPL"));
+    console.log(u.reverseHex(wallet.getScriptHashFromAddress("APBUyZNkemciUQurabSQBnnma7kGGhUPPL")));
+    console.log(u.str2hexstring(walletAddress));
+    console.log(unhexlify(u.reverseHex(wallet.getScriptHashFromAddress(walletAddress))));
+
+    const args1 =unhexlify(u.reverseHex(wallet.getScriptHashFromAddress(walletAddress)));
+
+    // const args2 = 1;
+    // const args3 = 1;
     const args2 =  u.int2hex(1);
     const args3 =  u.int2hex(2);
-
     // console.log(addressToScriptHash("AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y"));
     // Get Storage
     // const scriptHashNeoBlog = "85e9cc1f18fcebf9eb8211a128807e38d094542a";
