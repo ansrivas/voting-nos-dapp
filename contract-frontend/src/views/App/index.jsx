@@ -30,10 +30,8 @@ const App = ({ classes }) => (
   <div className={classes.App}>
     <Header title="Decentralized voting app!" />
     <p className={classes.intro}>
-      To get started, edit <code>src/views/App/index.js</code> and save to reload.
+      To get started, click <code>Register</code> to register obama as a candidate.
     </p>
-    <p className={classes.intro}>Or test out the following demo functions!</p>
-    <hr className={classes.lineBreak} />
     <NOSActions />
   </div>
 );

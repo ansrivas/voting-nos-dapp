@@ -22,11 +22,15 @@ def contender_register(ctx,  contender):
     """
     ok_count = 0
     print("register contender")
-    contender_key = concat(REGISTER_KEY, contender)
-    Put(ctx, contender_key, True)
-    ok_count += 1
-    Log(ok_count)
-    return ok_count
+    kyc_storage_key = concat(REGISTER_KEY, contender)
+    cur_vote = Get(ctx, kyc_storage_key)
+    if not cur_vote:
+        Log("No contender found")
+        Put(ctx, kyc_storage_key, True)
+        ok_count += 1
+        Log(ok_count)
+        return ok_count
+    return 1
 
 
 def check_vote(ctx, contender):

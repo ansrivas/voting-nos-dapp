@@ -28,21 +28,14 @@ class NOSActions extends React.Component {
 
   handleGetBalance = async scriptHash => alert(await this.props.nos.getBalance(scriptHash));
 
-  handleTestInvoke = async (scriptHash, operation, arg1,args2) => {
-  const output = await this.props.nos.testInvoke(scriptHash, operation, arg1,args2);
+  handleTestInvoke = async (scriptHash, operation, arg1, args2) => {
+  const output = await this.props.nos.testInvoke(scriptHash, operation, arg1, args2);
   const finalOutput = JSON.stringify(output);
 
-  // console.log(unhexlify('525058'));
-  // console.log(unhexlify('68656c6c6f20776f726c64'));
   console.log(finalOutput);
   const valueObj = output.stack[0];
-  // const valueObj1 = output.stack[1];
-  // console.log(valueObj1.value);
-  // console.log(u.ab2str(valueObj.value));
   console.log(unhexlify(valueObj.value));
-  // console.log(unhexlify(u.reverseHex(valueObj.value)));
 
-  // console.log(u.hex2int(valueObj.value));
   }
 
   handleInvoke = async (scriptHash, operation, args) =>
@@ -54,21 +47,11 @@ class NOSActions extends React.Component {
   render() {
     const { classes } = this.props;
 
-    // Get Balance
-    const neo = "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b";
-    // const gas = "602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7";
-    // const rpx = "ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9";
-    // (test) Invoke
-    // const addressToScriptHash = (address) => u.reverseHex(wallet.getScriptHashFromAddress(address));
-    // const scriptHashNeoAuth = addressToScriptHash("AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y");
-
-    // A simple contract to add two numbers
-    // const scriptHashNeoAuth = "0xc05aaad23bd0174962cbbc918c00c22384e86bba";
-    const scriptHashNeoAuth = "623b5c6c6d13f6e037be718b230da7e1e3dbc304";
-    // const scriptHashNeoAuth = "c9bef0500d45dc9c2dc24332f9f943b096dfd457";
-    // const scriptHashNeoAuth = "0xc05aaad23bd0174962cbbc918c00c22384e86bba";
+    const scriptHashNeoAuth = "82a2c20627565eac1738e21a6ad9a5bf6d8f1cdd";
 
     const operation = "register";
+    const operationCheckVote = "checkVote";
+    const operationVote = "vote";
 
     const walletAddress ="AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y" ;
     // const addressToScriptHash1 = (address) => u.reverseHex(wallet.getScriptHashFromAddress(address));
@@ -84,36 +67,28 @@ class NOSActions extends React.Component {
 
     const args1 = unhexlify(u.reverseHex(wallet.getScriptHashFromAddress(walletAddress)));
 
-    // const args2 = 1;
-    // const args3 = 2;
-    const args2 =  'BO';
-    const args3 = 'DT';
+    const args2 =  "BO";
+    const args3 = "DT";
 
-    // console.log(addressToScriptHash("AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y"));
-    // Get Storage
-    // const scriptHashNeoBlog = "85e9cc1f18fcebf9eb8211a128807e38d094542a";
-    // const key = "post.latest";
 
     return (
       <React.Fragment>
         <button className={classes.button} onClick={this.handleGetAddress}>
           Get Address
         </button>
-        <button className={classes.button} onClick={() => this.handleGetBalance(neo)}>
-          Get NEO Balance
-        </button>
 
-        <button className={classes.button} onClick={() => this.handleTestInvoke(scriptHashNeoAuth, 'checkVote', args1, args2)}>
-          Get Barack Obama's votes
+
+        <button className={classes.button} onClick={() => this.handleTestInvoke(scriptHashNeoAuth, operationCheckVote, args1, args2)}>
+          Check Barack Obama's votes
         </button>
-        <button className={classes.button} onClick={() => this.handleTestInvoke(scriptHashNeoAuth, 'vote', args1, args2)}>
+        <button className={classes.button} onClick={() => this.handleTestInvoke(scriptHashNeoAuth, operationVote, args1, args2)}>
           Vote Obama
         </button>
 
-        <button className={classes.button} onClick={() => this.handleTestInvoke(scriptHashNeoAuth, 'checkVote', args1, args3)}>
-          Get Donald Trump's votes
+        <button className={classes.button} onClick={() => this.handleTestInvoke(scriptHashNeoAuth, operationCheckVote, args1, args3)}>
+          Check Donald Trump's votes
         </button>
-        <button className={classes.button} onClick={() => this.handleTestInvoke(scriptHashNeoAuth, 'vote', args1, args3)}>
+        <button className={classes.button} onClick={() => this.handleTestInvoke(scriptHashNeoAuth, operationVote, args1, args3)}>
           Vote Trump
         </button>
         {/*
@@ -130,9 +105,7 @@ class NOSActions extends React.Component {
             Get RPX Balance
           </button>
         */}
-        <button className={classes.button} onClick={this.handleClaimGas}>
-          Claim Gas
-        </button>
+
         <button
           className={classes.button}
           onClick={() =>
@@ -140,7 +113,7 @@ class NOSActions extends React.Component {
             this.handleTestInvoke(scriptHashNeoAuth, operation, args1, args2)
           }
         >
-          TestInvoke (NeoAuth)
+          Register candidate for voting process
         </button>
         {/*
           <button
@@ -150,12 +123,7 @@ class NOSActions extends React.Component {
             Invoke (NeoAuth)
           </button>
         */}
-        <button
-          className={classes.button}
-          onClick={() => this.handleGetStorage(scriptHashNeoBlog, key)}
-        >
-          GetStorage (NeoBlog)
-        </button>
+
       </React.Fragment>
     );
   }
