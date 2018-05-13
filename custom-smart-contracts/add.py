@@ -41,14 +41,14 @@ def Main(operation, args):
     user_hash = args[0]
     authorized = CheckWitness(user_hash)
     if not authorized:
-        print("Not Authorized")
+        Log("Not Authorized")
         return False
-    print("Authorized")
+    Log("Authorized")
 
     if operation is not None:
         if operation == 'add':
-            print('add')
+            Log('add invoked')
             return args[1] + args[2]
 
-    Log('unknown operation')
+    Log('Inknown operation')
     return False

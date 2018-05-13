@@ -10,14 +10,26 @@ from boa.interop.Neo.TriggerType import Application, Verification
 from boa.interop.System.ExecutionEngine import GetCallingScriptHash
 from boa.interop.Neo.Storage import Get, Put, Delete, GetContext
 
-
-ALLOWED_CONTENDERS = {
-    'BO': 'Barack Obama',
-    'DT': 'Donald Trump'
-}
+REGISTER_KEY = b"contender_"
 
 
-def check_vote(ctx, address, contender):
+def contender_register(ctx,  contender):
+    """
+    :param contenders:list a list of addresses to register
+    :param token:Token A token object with your ICO settings
+    :return:
+        int: The number of addresses to register for KYC
+    """
+    ok_count = 0
+    print("register contender")
+    contender_key = concat(REGISTER_KEY, contender)
+    Put(ctx, contender_key, True)
+    ok_count += 1
+    Log(ok_count)
+    return ok_count
+
+
+def check_vote(ctx, contender):
     """
     Looks up the KYC status of an address
     :param address:bytearray The address to lookup
@@ -25,17 +37,26 @@ def check_vote(ctx, address, contender):
     :return:
         bool: KYC Status of address
     """
-    kyc_storage_key = concat('voted_', contender, address)
+    kyc_storage_key = concat(REGISTER_KEY, contender)
     return Get(ctx, kyc_storage_key)
 
 
-def vote(ctx, address, contender):
+def vote(ctx, contender):
     """."""
-    kyc_storage_key = concat('voted_', contender, address)
+    kyc_storage_key = concat(REGISTER_KEY, contender)
     cur_vote = Get(ctx, kyc_storage_key)
-    Put(ctx, kyc_storage_key, cur_vote + 1)
-    print('cur_vote')
-    print(cur_vote)
+    Log('cur_vote')
+    if not cur_vote:
+        Log("No contender found")
+        return False
+
+    if cur_vote is True:
+        new_votes = 1
+    else:
+        new_votes = cur_vote + 1
+    Log('new_votes')
+    Log(new_votes)
+    Put(ctx, kyc_storage_key, new_votes)
     return True
 
 
@@ -45,23 +66,29 @@ def Main(operation, args):
     # Am I who I say I am?
     user_hash = args[0]
     contender = args[1]
-    authorized = CheckWitness(user_hash)
-    if not authorized:
-        print("Not Authorized")
+    if len(args) == 3:
         return False
-    print("Authorized")
 
+    # authorized = CheckWitness(user_hash)
+    # if not authorized:
+    #     Log("Not Authorized")
+    #     return False
+    # Log("Authorized")
     ctx = GetContext()
 
-    if operation == 'vote':
-        status = vote(ctx, user_hash, contender)
-        print("voted")
-        print(status)
+    if operation == 'register':
+        count = contender_register(ctx, contender)
+        return count
+    elif operation == 'vote':
+        status = vote(ctx, contender)
+        Log("voted")
+        Log(status)
         return status
 
     elif operation == 'checkVote':
-        print("Check voted")
-        status = check_vote(ctx, user_hash, contender)
-        print("status is", status)
+        Log("Check voted")
+        status = check_vote(ctx, contender)
+        Log("status is")
+        Log(status)
         return status
     return False

@@ -28,7 +28,7 @@ const styles = {
 
 const App = ({ classes }) => (
   <div className={classes.App}>
-    <Header title="A nOS dApp starter-kit!" />
+    <Header title="Decentralized voting app!" />
     <p className={classes.intro}>
       To get started, edit <code>src/views/App/index.js</code> and save to reload.
     </p>
