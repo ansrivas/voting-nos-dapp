@@ -72,35 +72,35 @@
 9. Build your first simple smart contract to add two numbers:
 
     ```
-    neo> build /custom-smart-contracts/add.py
+    neo> build /custom-smart-contracts/voting.py
 
-    [I 180510 11:14:28 BuildNRun:48] Saved output to /custom-smart-contracts/add.avm
+    [I 180510 11:14:28 BuildNRun:48] Saved output to /custom-smart-contracts/voting.avm
     ```
 
 10. Now you need to import this contract. This deploys this smart-contract in your privatenet. Here you will notice that your smart contract accepts `07=String` and `10=Array` as input and return `02=Integer` as output. `True` is to say that you will `testinvoke` your smartcontract.
 
     ```
-    neo> import contract /custom-smart-contracts/add.avm 0710 05 True False
+    neo> import contract /custom-smart-contracts/voting.avm 0710 05 True False
     ```
 
-11. Once you will import this contract, give it some useful name like `addContract`. You can skip the rest by pressing <kbd>enter</kbd> key.
+11. Once you will import this contract, give it some useful name like `voting1`. You can skip the rest by pressing <kbd>enter</kbd> key.
 
     ```
     Please fill out the following contract details:
-    [Contract Name] > addContract
+    [Contract Name] > voting1
     ```
 
 12. Immediately after this step you will get a contract hash which will uniquely identify your smart-contract. Take a note of it and write it down somewhere to be used later. **Notice the last line below**
 
     ```
     Please fill out the following contract details:
-  [Contract Name] > addContract
+  [Contract Name] > voting1
   [Contract Version] >
   [Contract Author] >
   [Contract Email] >
   [Contract Description] >
   Creating smart contract....
-                   Name: addContract
+                   Name: voting1
                 Version:
                  Author:  
                   Email:  
@@ -116,19 +116,22 @@ Wait for sometime until the contract is deployed. You will see lots of log messa
 13. Its time to test the deployed smartcontract. **Don't forget to change the smartcontract in the line below.**
 
     ```
-    neo> testinvoke <your_smartcontract_hash> add ['AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y',1,2]
-
-    [I 180510 00:40:02 EventHub:71] [test_mode][SmartContract.Runtime.Log] [c05aaad23bd0174962cbbc918c00c22384e86bba] [b'Authorized']
-    [I 180510 00:40:02 EventHub:71] [test_mode][SmartContract.Runtime.Log] [c05aaad23bd0174962cbbc918c00c22384e86bba] [b'add']
-    [I 180510 00:40:02 EventHub:71] [test_mode][SmartContract.Execution.Success] [c05aaad23bd0174962cbbc918c00c22384e86bba] [3]
-    Used 0.253 Gas
+    neo> testinvoke <your_smartcontract_hash> register ['AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y','BO']
+    [I 180514 23:00:44 EventHub:71] [test_mode][SmartContract.Runtime.Log] [17adc98d0c3981f1146600ace57b107181a8c417] [b'register contender']
+    [I 180514 23:00:44 EventHub:71] [test_mode][SmartContract.Storage.Get] [17adc98d0c3981f1146600ace57b107181a8c417] ["b'contender_BO' -> bytearray(b'')"]
+    [I 180514 23:00:44 EventHub:71] [test_mode][SmartContract.Runtime.Log] [17adc98d0c3981f1146600ace57b107181a8c417] [b'No contender found']
+    [I 180514 23:00:44 EventHub:71] [test_mode][SmartContract.Storage.Put] [17adc98d0c3981f1146600ace57b107181a8c417] ["b'contender_BO' -> bytearray(b'\\x01')"]
+    [I 180514 23:00:44 EventHub:71] [test_mode][SmartContract.Runtime.Log] [17adc98d0c3981f1146600ace57b107181a8c417] [b'\x01']
+    [I 180514 23:00:44 EventHub:71] [test_mode][SmartContract.Execution.Success] [17adc98d0c3981f1146600ace57b107181a8c417] [1]
+    Used 1.212 Gas
 
     -------------------------------------------------------------------------------------------------------------------------------------
     Test invoke successful
-    Total operations: 76
-    Results ['3']
+    Total operations: 172
+    Results ['1']
     Invoke TX GAS cost: 0.0
     Invoke TX fee: 0.0001
+
     ```
 
 14. **Running your dApp**.
@@ -159,19 +162,20 @@ Wait for sometime until the contract is deployed. You will see lots of log messa
     cd nos-client
     yarn && yarn start
     ```
+16. Now you can register your app in nos with a domain name of your choice. Go back to neo-python prompt, as in step.4.
+Build the smartContract provided by default, import it and wait for the contract to be deployed.
+
+    ```
+    build /nos-smart-contract/contract.py
+    import contract /nos-smart-contract/contract.avm 0710 05 True False
+
+    testinvoke 0xe60a3fa8149a853eb4dff4f6ed93c931646a9e22 RegisterDomain ['AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y', 'voting.neo', 'AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y', 'http://localhost:1234']```
 
 16. At this point you have your **smart contract deployed**, **nos-client-browser running** and your **dApp running** on http://localhost:1234
 
 17. Finally in the nos-client, in the url bar, write `localhost:1234`. You will see your dApp there.
 
 18. Happy hacking !!
-
-build /nos-smart-contract/contract.py
-import contract /nos-smart-contract/contract.avm 0710 05 True False
-
-19. `testinvoke 0xe60a3fa8149a853eb4dff4f6ed93c931646a9e22 RegisterDomain ['AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y', 'addition.nos', 'AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y', 'http://localhost:1234']`
-
-build /nos-smart-contract/contract.py
-import contract /nos-smart-contract/contract.avm 0710 05 True False
+ 
 ## License
 MIT

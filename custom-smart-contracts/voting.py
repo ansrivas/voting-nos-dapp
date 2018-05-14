@@ -20,17 +20,15 @@ def contender_register(ctx,  contender):
     :return:
         int: The number of addresses to register for KYC
     """
-    ok_count = 0
-    print("register contender")
+    Log("register contender")
     kyc_storage_key = concat(REGISTER_KEY, contender)
     cur_vote = Get(ctx, kyc_storage_key)
     if not cur_vote:
         Log("No contender found")
         Put(ctx, kyc_storage_key, True)
-        ok_count += 1
-        Log(ok_count)
-        return ok_count
-    return 1
+        return True
+    Log("Contender already registered")
+    return "Contender already registered"
 
 
 def check_vote(ctx, contender):

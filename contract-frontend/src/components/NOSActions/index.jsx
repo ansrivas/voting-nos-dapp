@@ -61,13 +61,14 @@ class NOSActions extends React.Component {
 
   handleGetBalance = async scriptHash => alert(await this.props.nos.getBalance(scriptHash));
 
-  handleTestInvoke = async (scriptHash, operation, arg1, args2) => {
-  const output = await this.props.nos.testInvoke(scriptHash, operation, arg1, args2);
-  const finalOutput = JSON.stringify(output);
+  handleTestInvoke = async (scriptHash, operation, arg1, arg2) => {
+      console.log(scriptHash+ "->" +operation+"->" + arg1 +"->"+ str2hexstring(arg2));
+      const output = await this.props.nos.testInvoke(scriptHash, operation, arg1, str2hexstring(arg2));
+      const finalOutput = JSON.stringify(output);
 
-  console.log(finalOutput);
-  const valueObj = output.stack[0];
-  console.log(unhexlify(valueObj.value));
+      console.log(finalOutput);
+      const valueObj = output.stack[0];
+      console.log(unhexlify(valueObj.value));
 
   }
 
@@ -88,9 +89,9 @@ class NOSActions extends React.Component {
   render() {
     const { classes } = this.props;
 
-    const scriptHashNeoAuth = "82a2c20627565eac1738e21a6ad9a5bf6d8f1cdd";
+    const scriptHashNeoAuth = "5be7a5a47cd39de784989500b4a074a433d48be1";
 
-    const operation = "register";
+    const operationRegister = "register";
     const operationCheckVote = "checkVote";
     const operationVote = "vote";
 
@@ -136,7 +137,7 @@ class NOSActions extends React.Component {
             <button
               className={classes.button}
               onClick={() =>
-                this.handleTestInvoke(scriptHashNeoAuth, operation, args1, selectedCandidate)
+                this.handleTestInvoke(scriptHashNeoAuth, operationRegister, args1, selectedCandidate)
               }
             >
               Register candidate for voting process
