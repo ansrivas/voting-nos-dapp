@@ -11,7 +11,7 @@ const styles = {
     fontFamily: "Source Sans Pro",
     margin: 0,
     padding: 0,
-    backgroundColor: "#ffffff"
+    backgroundColor: "#f0f0f0"
   },
   App: {
     textAlign: "center"
@@ -28,9 +28,9 @@ const styles = {
 
 const App = ({ classes }) => (
   <div className={classes.App}>
-    <Header title="Decentralized voting app!" />
+    <Header title="Decentralized Voting App" />
     <p className={classes.intro}>
-      To get started, click <code>Register</code> to register obama as a candidate.
+
     </p>
     <NOSActions />
   </div>

@@ -12,14 +12,13 @@ const styles = {
     marginBottom: "32px"
   },
   title: {
-    fontSize: "1.5em"
+    fontSize: "2.0em"
   }
 };
-
+//<SpinningLogo/>
 const Header = ({ classes, title }) => (
   <header className={classes.header}>
     <h1 className={classes.title}>{title}</h1>
-    <SpinningLogo />
   </header>
 );
 
