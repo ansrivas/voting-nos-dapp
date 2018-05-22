@@ -94,21 +94,21 @@
 
     ```
     Please fill out the following contract details:
-  [Contract Name] > voting1
-  [Contract Version] >
-  [Contract Author] >
-  [Contract Email] >
-  [Contract Description] >
-  Creating smart contract....
-                   Name: voting1
-                Version:
-                 Author:  
-                  Email:  
-            Description:  
-          Needs Storage: True
-   Needs Dynamic Invoke: False
-  {
-      "hash": "0xc05aaad23bd0174962cbbc918c00c22384e86bba",
+    [Contract Name] > voting1
+    [Contract Version] >
+    [Contract Author] >
+    [Contract Email] >
+    [Contract Description] >
+    Creating smart contract....
+                     Name: voting1
+                  Version:
+                   Author:  
+                    Email:  
+              Description:  
+            Needs Storage: True
+     Needs Dynamic Invoke: False
+    {
+        "hash": "0xc05aaad23bd0174962cbbc918c00c22384e86bba",
       ```
 **Note down the hash of your contract.
 Wait for sometime until the contract is deployed. You will see lots of log messages.**
